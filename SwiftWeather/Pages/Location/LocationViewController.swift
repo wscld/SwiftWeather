@@ -30,7 +30,9 @@ class LocationViewController: UIViewController {
                 self.updateLocations(locations: locations);
                 self.loading = false;
             case(.failure(let error)):
-                print(error);
+                DispatchQueue.main.async {
+                    self.present(AlertBuilder.buildAlert(title: "Algo deu errado", subtitle: error.localizedDescription), animated: true);
+                }
                 self.loading = false;
             }
         }

@@ -12,6 +12,7 @@ class ForecastCell:UITableViewCell{
     @IBOutlet var dateLabel:UILabel?;
     @IBOutlet var temperatureLabel:UILabel?;
     @IBOutlet var feelsLikeLabel:UILabel?;
+    @IBOutlet var iconView:UIImageViewExtended?;
     
     override class func awakeFromNib() {
         super.awakeFromNib();
@@ -31,6 +32,11 @@ class ForecastCell:UITableViewCell{
         }else if(temp>30){ // quente
             forecastView?.backgroundColor = hexStringToUIColor(hex: "#ecc793");
         }
+    }
+    
+    func setIcon(icon:String){
+        let url = "https://openweathermap.org/img/wn/\(icon)@2x.png"
+        self.iconView?.load(url: URL(string: url)!);
     }
     
     func hexStringToUIColor (hex:String) -> UIColor {

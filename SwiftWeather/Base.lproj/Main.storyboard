@@ -31,7 +31,7 @@
                                                     <rect key="frame" x="20" y="11" width="374" height="179"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperatura" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHo-ah-9Gl">
-                                                            <rect key="frame" x="20" y="88" width="97" height="21"/>
+                                                            <rect key="frame" x="95" y="88" width="97" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -43,7 +43,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sensação termica" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sBI-M7-KXK">
-                                                            <rect key="frame" x="20" y="117" width="136" height="21"/>
+                                                            <rect key="frame" x="95" y="117" width="136" height="21"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
@@ -60,20 +60,29 @@
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fsc-eX-Bt9" customClass="UIImageViewExtended" customModule="SwiftWeather" customModuleProvider="target">
+                                                            <rect key="frame" x="20" y="80" width="67" height="67"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="67" id="Ies-ev-9Am"/>
+                                                                <constraint firstAttribute="height" constant="67" id="RPe-el-OFO"/>
+                                                            </constraints>
+                                                        </imageView>
                                                     </subviews>
                                                     <color key="backgroundColor" systemColor="tintColor"/>
                                                     <constraints>
                                                         <constraint firstAttribute="trailing" secondItem="0jN-MS-Jzg" secondAttribute="trailing" constant="20" id="0gm-5I-aRS"/>
                                                         <constraint firstItem="0jN-MS-Jzg" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="sBI-M7-KXK" secondAttribute="trailing" constant="8" symbolic="YES" id="1tk-mx-JRL"/>
+                                                        <constraint firstItem="kHo-ah-9Gl" firstAttribute="leading" secondItem="fsc-eX-Bt9" secondAttribute="trailing" constant="8" symbolic="YES" id="3LA-sJ-qeN"/>
                                                         <constraint firstItem="70O-Bp-Txf" firstAttribute="top" secondItem="nMu-ME-FDI" secondAttribute="bottom" constant="20" id="72j-ED-Wrk"/>
+                                                        <constraint firstItem="fsc-eX-Bt9" firstAttribute="leading" secondItem="Rj7-mt-VSL" secondAttribute="leading" constant="20" symbolic="YES" id="Fs8-hy-Uhl"/>
                                                         <constraint firstItem="70O-Bp-Txf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kHo-ah-9Gl" secondAttribute="trailing" constant="8" symbolic="YES" id="HdC-ka-rTp"/>
                                                         <constraint firstItem="nMu-ME-FDI" firstAttribute="leading" secondItem="Rj7-mt-VSL" secondAttribute="leading" constant="20" id="JJN-79-lWh"/>
                                                         <constraint firstAttribute="trailing" secondItem="70O-Bp-Txf" secondAttribute="trailing" constant="20" id="SCG-NB-RzY"/>
                                                         <constraint firstItem="nMu-ME-FDI" firstAttribute="top" secondItem="Rj7-mt-VSL" secondAttribute="top" constant="41" id="e60-SK-5CU"/>
-                                                        <constraint firstItem="sBI-M7-KXK" firstAttribute="leading" secondItem="Rj7-mt-VSL" secondAttribute="leading" constant="20" id="fO6-Mh-rOH"/>
+                                                        <constraint firstItem="sBI-M7-KXK" firstAttribute="leading" secondItem="fsc-eX-Bt9" secondAttribute="trailing" constant="8" symbolic="YES" id="f9g-IS-nvO"/>
                                                         <constraint firstItem="0jN-MS-Jzg" firstAttribute="top" secondItem="70O-Bp-Txf" secondAttribute="bottom" constant="8" symbolic="YES" id="fQg-9d-znJ"/>
                                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="nMu-ME-FDI" secondAttribute="trailing" constant="20" symbolic="YES" id="hCX-Bc-6qF"/>
-                                                        <constraint firstItem="kHo-ah-9Gl" firstAttribute="leading" secondItem="Rj7-mt-VSL" secondAttribute="leading" constant="20" id="s3L-Kd-oO5"/>
+                                                        <constraint firstItem="fsc-eX-Bt9" firstAttribute="top" secondItem="nMu-ME-FDI" secondAttribute="bottom" constant="12" id="hGS-es-9CH"/>
                                                         <constraint firstItem="kHo-ah-9Gl" firstAttribute="top" secondItem="nMu-ME-FDI" secondAttribute="bottom" constant="20" id="tyl-7s-Fa0"/>
                                                         <constraint firstItem="sBI-M7-KXK" firstAttribute="top" secondItem="kHo-ah-9Gl" secondAttribute="bottom" constant="8" symbolic="YES" id="zmh-ZV-feT"/>
                                                     </constraints>
@@ -90,6 +99,7 @@
                                             <outlet property="dateLabel" destination="nMu-ME-FDI" id="9rr-dl-TMZ"/>
                                             <outlet property="feelsLikeLabel" destination="0jN-MS-Jzg" id="GEg-sh-tXL"/>
                                             <outlet property="forecastView" destination="Rj7-mt-VSL" id="qci-5b-f3Q"/>
+                                            <outlet property="iconView" destination="fsc-eX-Bt9" id="5T5-cb-OGU"/>
                                             <outlet property="temperatureLabel" destination="70O-Bp-Txf" id="IF7-v7-dGX"/>
                                         </connections>
                                     </tableViewCell>
@@ -111,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1845" y="-625"/>
+            <point key="canvasLocation" x="1844.9275362318842" y="-625.44642857142856"/>
         </scene>
         <!--Buscar cidade-->
         <scene sceneID="XJh-mK-oDh">

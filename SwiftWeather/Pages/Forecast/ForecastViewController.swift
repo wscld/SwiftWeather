@@ -25,20 +25,26 @@ class ForecastViewController: UIViewController {
             case .success(let forecast):
                 self.updateForecast(forecast: forecast)
             case .failure(let error):
-                print(error);
+                DispatchQueue.main.async {
+                    self.present(AlertBuilder.buildAlert(title: "Algo deu errado", subtitle: error.localizedDescription), animated: true);
+                }
+                
             }
         }
     }
     
     func updateForecast(forecast:Forecast){
         DispatchQueue.main.async {
-            let calendar = Calendar.current
-            self.forecast = forecast;
-
-            self.forecast?.list = forecast.list.filter{ calendar.component(.hour,from: DateUtils.millisToDate(millis: Double($0.dt))) == 12 }
-            
+            self.forecast = self.filterForecast(forecast: forecast);
             self.tableView.reloadData();
         }
+    }
+    
+    func filterForecast(forecast:Forecast) -> Forecast{
+        let calendar = Calendar.current;
+        var f = forecast;
+        f.list = forecast.list.filter{ calendar.component(.hour,from: DateUtils.millisToDate(millis: Double($0.dt))) == 12 }
+        return f;
     }
 }
 
@@ -69,6 +75,7 @@ extension ForecastViewController:UITableViewDataSource{
         cell.temperatureLabel?.text = "\(temp)º";
         cell.feelsLikeLabel?.text = "\(feelsLike)º";
         cell.dateLabel?.text = DateUtils.fromMillis(millis: Double(forecast!.list[indexPath.row].dt));
+        cell.setIcon(icon: forecast!.list[indexPath.row].weather[0].icon);
         return cell;
     }
     
