@@ -23,7 +23,7 @@ class ForecastCell:UITableViewCell{
     }
     
     func setColor(temp:Float){
-        self.forecastView?.layer.cornerRadius = 10;
+        self.forecastView?.layer.cornerRadius = 18;
         self.forecastView?.layer.masksToBounds = true;
         if(temp<=25){ // frio
             forecastView?.backgroundColor = hexStringToUIColor(hex: "#003aad");
